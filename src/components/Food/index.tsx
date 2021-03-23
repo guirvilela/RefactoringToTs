@@ -4,19 +4,30 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
-class Food extends Component {
-  constructor(props) {
+interface PropertiesFoodsPage {
+  food: {
+    id: any;
+    name: string;
+    description: string;
+    price: string;
+  };
+  handleDelete: any;
+  handleEditFood: any;
+}
+
+class Food extends Component<PropertiesFoodsPage> {
+  constructor(props: any) {
     super(props);
 
-    const { available } = this.props.food;
+    const { available }: any = this.props.food;
     this.state = {
-      isAvailable: available
+      isAvailable: available,
     };
   }
 
   toggleAvailable = async () => {
-    const { food } = this.props;
-    const { isAvailable } = this.state;
+    const { food }: PropertiesFoodsPage = this.props;
+    const { isAvailable }: any = this.state;
 
     await api.put(`/foods/${food.id}`, {
       ...food,
@@ -24,17 +35,17 @@ class Food extends Component {
     });
 
     this.setState({ isAvailable: !isAvailable });
-  }
+  };
 
   setEditingFood = () => {
-    const { food, handleEditFood } = this.props;
+    const { food, handleEditFood }: any = this.props;
 
     handleEditFood(food);
-  }
+  };
 
   render() {
-    const { isAvailable } = this.state;
-    const { food, handleDelete } = this.props;
+    const { isAvailable }: any = this.state;
+    const { food, handleDelete }: any = this.props;
 
     return (
       <Container available={isAvailable}>
@@ -87,6 +98,6 @@ class Food extends Component {
       </Container>
     );
   }
-};
+}
 
 export default Food;

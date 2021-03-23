@@ -23,6 +23,14 @@
       "price": "25.90",
       "available": false,
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png"
+    },
+    {
+      "image": "http://s2.glbimg.com/-70Col_mzs4SUouKaDWfP3PWey0=/200x200/filters:quality(80)/g.glbimg.com/og/gs/gsat5/f/thumbs/tag/2015/07/13/outras-massas-620.jpg",
+      "name": "Massa Italia",
+      "price": "300",
+      "description": "Muiito boma comendo",
+      "available": true,
+      "id": 4
     }
   ]
 }
